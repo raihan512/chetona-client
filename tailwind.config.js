@@ -4,6 +4,9 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    fontFamily: {
+      'mont': ['Montserrat', 'sans-serif']
+    },
     extend: {},
   },
   plugins: [],
