@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import phone from '../../../../assets/images/icons/phone.png';
-import envelope from '../../../../assets/images/icons/envelope.png';
+import phone from '../../../../assets/images/icons/Headertop/phone.png';
+import envelope from '../../../../assets/images/icons/Headertop/envelope.png';
 
 const HeaderTop = () => {
     return (
