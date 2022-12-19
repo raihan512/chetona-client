@@ -1,0 +1,16 @@
+.hero-slider .slick-dots li button {
+    background-color: #D8D8D8;
+    border-radius: 50%;
+    height: 11px;
+    width: 11px;
+}
+
+.hero-slider .slick-dots li.slick-active button {
+    background-color: #40A4DC;
+    border-radius: 50%;
+}
+
+.hero-slider .slick-dots li.slick-active button::before,
+.hero-slider .slick-dots li button::before {
+    color: transparent;
+}
