@@ -11,12 +11,12 @@ const Navbar = () => {
     const [dropdown, setDropdown] = useState(false);
     const [mobileNav, setMobileNav] = useState(false);
     const menuItems = <>
-        <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b pl-3 pr-20 md:px-2 mr-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link to=''>হোম</Link></li>
-        <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b pl-3 pr-20 md:px-1 lg:px-2 mx-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link to=''>বই</Link></li>
-        <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b pl-3 pr-20 md:px-1 lg:px-2 mx-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link to=''>লেখক</Link></li>
+        <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b md:px-2 mr-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link className='pl-3 pr-20 md:pl-0 md:pr-0' to=''>হোম</Link></li>
+        <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b md:px-1 lg:px-2 mx-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link className='pl-3 pr-20 md:pl-0 md:pr-0' to=''>বই</Link></li>
+        <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b md:px-1 lg:px-2 mx-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link className='pl-3 pr-20 md:pl-0 md:pr-0' to=''>লেখক</Link></li>
         {/* Dropdown */}
-        <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b pl-3 pr-20 md:px-1 lg:px-2 mx-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2 relative'>
-            <Link to='' className='flex items-center' onClick={() => setDropdown(!dropdown)}>ক্যাটাগরি <img src={dropdownicon} className="h-[7px] ml-2" alt="" /></Link>
+        <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b md:px-1 lg:px-2 mx-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2 relative'>
+            <Link to='' className='flex items-center pl-3 pr-20 md:pl-0 md:pr-0' onClick={() => setDropdown(!dropdown)}>ক্যাটাগরি <img src={dropdownicon} className="h-[7px] ml-2" alt="" /></Link>
             {/* Dropdown Menu */}
             <ul className={`absolute z-30 top-9 left-40 md:left-10 bg-[#40A4DC] rounded-sm py-1 ${dropdown ? 'block' : 'hidden'}`}>
                 <li className='md:text-lg lg:text-xl text-white hover:bg-white hover:text-black'><Link className=' pl-6 pr-20' to=''>সিরাত</Link></li>
@@ -26,11 +26,11 @@ const Navbar = () => {
             </ul>
         </li>
         {/* Dropdown */}
-        <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b pl-3 pr-20 md:px-1 lg:px-2 mx-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link to=''>ম্যাগাজিন</Link></li>
-        <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b pl-3 pr-20 md:px-1 lg:px-2 mx-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link to=''>প্যাকেজ</Link></li>
-        <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b pl-3 pr-20 md:px-1 lg:px-2 mx-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link to=''>ভিডিও</Link></li>
-        <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b pl-3 pr-20 md:px-1 lg:px-2 mx-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link to=''>ব্লগ</Link></li>
-        <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b pl-3 pr-20 md:px-2 ml-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link to=''>ক্যাম্পেইন</Link></li>
+        <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b md:px-1 lg:px-2 mx-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link className='pl-3 pr-20 md:pl-0 md:pr-0' to=''>ম্যাগাজিন</Link></li>
+        <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b md:px-1 lg:px-2 mx-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link className='pl-3 pr-20 md:pl-0 md:pr-0' to=''>প্যাকেজ</Link></li>
+        <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b md:px-1 lg:px-2 mx-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link className='pl-3 pr-20 md:pl-0 md:pr-0' to=''>ভিডিও</Link></li>
+        <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b md:px-1 lg:px-2 mx-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link className='pl-3 pr-20 md:pl-0 md:pr-0' to=''>ব্লগ</Link></li>
+        <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b md:px-2 ml-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link className='pl-3 pr-20 md:pl-0 md:pr-0' to=''>ক্যাম্পেইন</Link></li>
     </>
     return (
         <nav className='flex justify-between items-center mt-7 mb-6'>
