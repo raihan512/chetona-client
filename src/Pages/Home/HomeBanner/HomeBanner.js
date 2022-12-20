@@ -25,8 +25,8 @@ const HomeBanner = () => {
                 <img src={banner} className="w-full" alt="" />
             </Slider>
             <div className='absolute top-1/2 left-0 mx-auto px-5 w-full flex justify-between'>
-                <button onClick={() => homeSlider.current.slickPrev()}><FaChevronLeft className='text-2xl text-white' /></button>
-                <button onClick={() => homeSlider.current.slickNext()}><FaChevronRight className='text-2xl text-white' /></button>
+                <button onClick={() => homeSlider.current.slickPrev()}><FaChevronLeft className='text-2xl text-white hover:text-[#40A4DC]' /></button>
+                <button onClick={() => homeSlider.current.slickNext()}><FaChevronRight className='text-2xl text-white hover:text-[#40A4DC]' /></button>
             </div>
         </section>
     );

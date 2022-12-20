@@ -1,24 +1,28 @@
 import React from 'react';
 import book from '../../../assets/images/book.jpg'
 import bdt from '../../../assets/images/icons/bdt.png'
+import author from '../../../assets/images/writter/author.jpeg'
 import whitestar from '../../../assets/images/icons/white-star.png'
 import blackstar from '../../../assets/images/icons/black-star.png'
 
 const HomeRecentPublished = () => {
     return (
         <section className='max-width'>
-            <div className='mx-1.5 md:mx-2.5'>
+            <div className='mx-1.5 md:mx-2.5 mb-14'>
                 {/* Sectiontitle */}
                 <div className='flex justify-between items-center mb-14'>
                     <h3 className='text-xl md:text-2xl lg:text-4xl text-black'>সদ্য প্রকাশিত</h3>
-                    <button className='text-lg md:text-xl lg:text-2xl text-[#666666] underline'>ঘুরে দেখুন</button>
+                    <button className='text-lg md:text-xl lg:text-2xl text-[#666666] underline transition-all hover:text-[#40A4DC] hover:-translate-x-1'>ঘুরে দেখুন</button>
                 </div>
                 {/* Sectiontitle */}
                 {/* Content */}
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-8 place-items-center'>
+                <div className='flex justify-center lg:justify-between flex-wrap'>
                     {/* Book Item */}
-                    <div className='flex justify-between items-center w-[290px] md:w-[350px] rounded-md border hover:shadow-xl border-[#40A4DC] pl-2 md:pl-5 pr-5 md:pr-12 transition-all hover:-translate-y-1'>
-                        <img src={book} className="-mt-4 mb-3 md:mb-8" alt="" />
+                    <div className='flex justify-between items-center w-[290px] md:w-[350px] mx-5 lg:mx-0 mb-10 rounded-sm border-2 hover:shadow-xl border-[#40A4DC] pl-2 md:pl-5 pr-3 md:pr-12 transition-all hover:-translate-y-1'>
+                        <div className="relative -mt-5 mb-4 md:mb-8 border-2 p-1 border-[#40A4DC] bg-white rounded-sm">
+                            <img src={book} className='rounded-sm w-[90px] md:w-[120px]' alt="" />
+                            <img src={author} className='absolute h-[30px] md:h-[50px] w-[30px] md:w-[50px] rounded-full -bottom-4 md:-bottom-6 left-8 md:left-9 border-2 border-[#40A4DC]' alt="" />
+                        </div>
                         <div>
                             <h4 className='text-base md:text-lg text-[#000000] leading-4 mb-1'>বাংলায় লরেম ইপ্সাম</h4>
                             <p className='text-sm md:text-base text-[#565656] mb-1'>বাংলায় লরেম ইপ্সাম</p>
@@ -34,8 +38,11 @@ const HomeRecentPublished = () => {
                         </div>
                     </div>
                     {/* Book Item */}
-                    <div className='flex justify-between items-center w-[290px] md:w-[350px] rounded-md border hover:shadow-xl border-[#40A4DC] pl-2 md:pl-5 pr-5 md:pr-12 transition-all hover:-translate-y-1'>
-                        <img src={book} className="-mt-4 mb-3 md:mb-8" alt="" />
+                    <div className='flex justify-between items-center w-[290px] md:w-[350px] mx-5 lg:mx-0 mb-10 rounded-sm border-2 hover:shadow-xl border-[#40A4DC] pl-2 md:pl-5 pr-3 md:pr-12 transition-all hover:-translate-y-1'>
+                        <div className="relative -mt-5 mb-4 md:mb-8 border-2 p-1 border-[#40A4DC] bg-white rounded-sm">
+                            <img src={book} className='rounded-sm w-[90px] md:w-[120px]' alt="" />
+                            <img src={author} className='absolute h-[30px] md:h-[50px] w-[30px] md:w-[50px] rounded-full -bottom-4 md:-bottom-6 left-8 md:left-9 border-2 border-[#40A4DC]' alt="" />
+                        </div>
                         <div>
                             <h4 className='text-base md:text-lg text-[#000000] leading-4 mb-1'>বাংলায় লরেম ইপ্সাম</h4>
                             <p className='text-sm md:text-base text-[#565656] mb-1'>বাংলায় লরেম ইপ্সাম</p>
@@ -51,8 +58,11 @@ const HomeRecentPublished = () => {
                         </div>
                     </div>
                     {/* Book Item */}
-                    <div className='flex justify-between items-center w-[290px] md:w-[350px] rounded-md border hover:shadow-xl border-[#40A4DC] pl-2 md:pl-5 pr-5 md:pr-12 transition-all hover:-translate-y-1'>
-                        <img src={book} className="-mt-4 mb-3 md:mb-8" alt="" />
+                    <div className='flex justify-between items-center w-[290px] md:w-[350px] mx-5 lg:mx-0 mb-10 rounded-sm border-2 hover:shadow-xl border-[#40A4DC] pl-2 md:pl-5 pr-3 md:pr-12 transition-all hover:-translate-y-1'>
+                        <div className="relative -mt-5 mb-4 md:mb-8 border-2 p-1 border-[#40A4DC] bg-white rounded-sm">
+                            <img src={book} className='rounded-sm w-[90px] md:w-[120px]' alt="" />
+                            <img src={author} className='absolute h-[30px] md:h-[50px] w-[30px] md:w-[50px] rounded-full -bottom-4 md:-bottom-6 left-8 md:left-9 border-2 border-[#40A4DC]' alt="" />
+                        </div>
                         <div>
                             <h4 className='text-base md:text-lg text-[#000000] leading-4 mb-1'>বাংলায় লরেম ইপ্সাম</h4>
                             <p className='text-sm md:text-base text-[#565656] mb-1'>বাংলায় লরেম ইপ্সাম</p>
