@@ -18,7 +18,7 @@ const HomeBanner = () => {
     };
     const homeSlider = useRef(null);
     return (
-        <section className='relative'>
+        <section className='relative mb-10'>
             <Slider ref={homeSlider} {...settings} className='hero-slider'>
                 <img src={banner} className="w-full" alt="" />
                 <img src={banner} className="w-full" alt="" />

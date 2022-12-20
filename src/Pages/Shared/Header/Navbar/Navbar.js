@@ -42,7 +42,7 @@ const Navbar = () => {
                     {menuItems}
                 </ul>
                 {/* mobile Menu Bar */}
-                <ul className={`flex flex-col md:hidden absolute top-0 h-screen bg-[#40A4DC] ${mobileNav ? 'left-0' : '-left-[500px]'}`}>
+                <ul className={`flex flex-col md:hidden z-30 absolute top-0 h-screen bg-[#40A4DC] ${mobileNav ? 'left-0' : '-left-[500px]'}`}>
                     {menuItems}
                 </ul>
             </div>
