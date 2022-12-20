@@ -1,10 +1,13 @@
 import React from 'react';
+import FooterBottom from './FooterBottom/FooterBottom';
+import FooterMenu from './FooterMenu/FooterMenu';
 
 const Footer = () => {
     return (
-        <div>
-            <h2 className='text-6xl'>Footer</h2>
-        </div>
+        <footer >
+            <FooterMenu></FooterMenu>
+            <FooterBottom></FooterBottom>
+        </footer>
     );
 };
 
