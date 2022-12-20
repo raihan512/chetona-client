@@ -1,4 +1,5 @@
 import React from 'react';
+import Subscribe from '../../Shared/Subscribe/Subscribe';
 import HomeAllBooks from '../HomeAllBooks/HomeAllBooks';
 import HomeBanner from '../HomeBanner/HomeBanner';
 import HomeCategorySlider from '../HomeCategorySlider/HomeCategorySlider';
@@ -15,6 +16,7 @@ const Home = () => {
             <HomeAllBooks></HomeAllBooks>
             <HomeCategorySlider></HomeCategorySlider>
             <HomeFbGroup></HomeFbGroup>
+            <Subscribe></Subscribe>
         </div>
     );
 };

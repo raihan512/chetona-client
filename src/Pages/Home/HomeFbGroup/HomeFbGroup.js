@@ -3,7 +3,7 @@ import fbgroup from '../../../assets/images/fbgroup.jpg';
 
 const HomeFbGroup = () => {
     return (
-        <section className='pt-5 md:pt-10 lg:pt-24 pb-3 md:pb-8 lg:pb-14 bg-[#F5F8FE]'>
+        <section className='pt-5 md:pt-10 lg:pt-24 pb-3 md:pb-8 lg:pb-14 bg-[#F6F6F6]'>
             <div className="max-width ">
                 <div className='mx-1.5 md:mx-2.5'>
                     <div className='flex flex-col md:flex-row justify-between items-center'>

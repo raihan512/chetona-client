@@ -64,20 +64,20 @@ const HomeCategorySlider = () => {
                     <div className='flex items-center justify-between w-10/12 mx-auto sm:w-full'>
                         <div className='mx-auto w-11/12'>
                             <Slider ref={catrgorySlider} {...settings} className='home-category-slider'>
-                                <button className='text-lg md:text-xl lg:text-2xl text-[#000000] px-5 md:px-10 py-2 bg-white rounded-md shadow-lg max-w-[131px] my-2'>সিরাত</button>
-                                <button className='text-lg md:text-xl lg:text-2xl text-[#000000] px-5 md:px-10 py-2 bg-white rounded-md shadow-lg max-w-[131px] my-2'>জীবনী</button>
-                                <button className='text-lg md:text-xl lg:text-2xl text-[#000000] px-5 md:px-10 py-2 bg-white rounded-md shadow-lg max-w-[131px] my-2'>ধর্মতত্ত্ব</button>
-                                <button className='text-lg md:text-xl lg:text-2xl text-[#000000] px-5 md:px-10 py-2 bg-white rounded-md shadow-lg max-w-[131px] my-2'>প্রবন্ধ</button>
-                                <button className='text-lg md:text-xl lg:text-2xl text-[#000000] px-5 md:px-10 py-2 bg-white rounded-md shadow-lg max-w-[131px] my-2'>সিরাত</button>
-                                <button className='text-lg md:text-xl lg:text-2xl text-[#000000] px-5 md:px-10 py-2 bg-white rounded-md shadow-lg max-w-[131px] my-2'>জীবনী</button>
-                                <button className='text-lg md:text-xl lg:text-2xl text-[#000000] px-5 md:px-10 py-2 bg-white rounded-md shadow-lg max-w-[131px] my-2'>ধর্মতত্ত্ব</button>
-                                <button className='text-lg md:text-xl lg:text-2xl text-[#000000] px-5 md:px-10 py-2 bg-white rounded-md shadow-lg max-w-[131px] my-2'>প্রবন্ধ</button>
+                                <button className='text-lg md:text-xl lg:text-2xl text-[#000000] px-5 md:px-10 py-2 bg-white rounded-md shadow-md max-w-[131px] my-2'>সিরাত</button>
+                                <button className='text-lg md:text-xl lg:text-2xl text-[#000000] px-5 md:px-10 py-2 bg-white rounded-md shadow-md max-w-[131px] my-2'>জীবনী</button>
+                                <button className='text-lg md:text-xl lg:text-2xl text-[#000000] px-5 md:px-10 py-2 bg-white rounded-md shadow-md max-w-[131px] my-2'>ধর্মতত্ত্ব</button>
+                                <button className='text-lg md:text-xl lg:text-2xl text-[#000000] px-5 md:px-10 py-2 bg-white rounded-md shadow-md max-w-[131px] my-2'>প্রবন্ধ</button>
+                                <button className='text-lg md:text-xl lg:text-2xl text-[#000000] px-5 md:px-10 py-2 bg-white rounded-md shadow-md max-w-[131px] my-2'>সিরাত</button>
+                                <button className='text-lg md:text-xl lg:text-2xl text-[#000000] px-5 md:px-10 py-2 bg-white rounded-md shadow-md max-w-[131px] my-2'>জীবনী</button>
+                                <button className='text-lg md:text-xl lg:text-2xl text-[#000000] px-5 md:px-10 py-2 bg-white rounded-md shadow-md max-w-[131px] my-2'>ধর্মতত্ত্ব</button>
+                                <button className='text-lg md:text-xl lg:text-2xl text-[#000000] px-5 md:px-10 py-2 bg-white rounded-md shadow-md max-w-[131px] my-2'>প্রবন্ধ</button>
                             </Slider>
                         </div>
                         <div className='w-1/12 flex justify-end'>
                             <button
                                 onClick={() => catrgorySlider.current.slickNext()}
-                                className='text-lg md:text-xl lg:text-2xl text-[#717C7F] my-2 px-3 py-3 bg-white rounded-md shadow-lg hover:text-[#40A4DC]'><FaChevronRight /></button>
+                                className='text-lg md:text-xl lg:text-2xl text-[#717C7F] my-2 px-3 py-3 bg-white rounded-md shadow-md hover:text-[#40A4DC]'><FaChevronRight /></button>
                         </div>
                     </div>
                     {/* Slider End*/}
