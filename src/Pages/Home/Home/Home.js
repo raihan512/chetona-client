@@ -16,7 +16,6 @@ const Home = () => {
             <HomeAllBooks></HomeAllBooks>
             <HomeCategorySlider></HomeCategorySlider>
             <HomeFbGroup></HomeFbGroup>
-            <Subscribe></Subscribe>
         </div>
     );
 };

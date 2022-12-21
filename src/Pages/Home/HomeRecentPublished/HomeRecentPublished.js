@@ -1,5 +1,5 @@
 import React from 'react';
-import book from '../../../assets/images/book.jpg'
+import book from '../../../assets/images/book.JPG'
 import bdt from '../../../assets/images/icons/bdt.png'
 import author from '../../../assets/images/writter/author.jpeg'
 import whitestar from '../../../assets/images/icons/white-star.png'
@@ -34,7 +34,7 @@ const HomeRecentPublished = () => {
                                 <img src={whitestar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
                             </div>
                             <p className='flex items-center mb-1 text-sm md:text-base'><strong>১০০</strong><img src={bdt} className="ml-1 h-[12px]" alt="" /></p>
-                            <button className='bg-[#40A4DC] py-1 px-3 text-white rounded-sm text-xs md:text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>কার্টে যুক্ত করুন</button>
+                            <button className='bg-[#40A4DC] py-1 px-3 text-white rounded-sm text-xs md:text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>দেখুন</button>
                         </div>
                     </div>
                     {/* Book Item */}
@@ -54,7 +54,7 @@ const HomeRecentPublished = () => {
                                 <img src={whitestar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
                             </div>
                             <p className='flex items-center mb-1 text-sm md:text-base'><strong>১০০</strong><img src={bdt} className="ml-1 h-[12px]" alt="" /></p>
-                            <button className='bg-[#40A4DC] py-1 px-3 text-white rounded-sm text-xs md:text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>কার্টে যুক্ত করুন</button>
+                            <button className='bg-[#40A4DC] py-1 px-3 text-white rounded-sm text-xs md:text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>দেখুন</button>
                         </div>
                     </div>
                     {/* Book Item */}
@@ -74,7 +74,7 @@ const HomeRecentPublished = () => {
                                 <img src={whitestar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
                             </div>
                             <p className='flex items-center mb-1 text-sm md:text-base'><strong>১০০</strong><img src={bdt} className="ml-1 h-[12px]" alt="" /></p>
-                            <button className='bg-[#40A4DC] py-1 px-3 text-white rounded-sm text-xs md:text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>কার্টে যুক্ত করুন</button>
+                            <button className='bg-[#40A4DC] py-1 px-3 text-white rounded-sm text-xs md:text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>দেখুন</button>
                         </div>
                     </div>
                 </div>
