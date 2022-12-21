@@ -2,40 +2,40 @@
     {
         "_id": 1,
         "thumb": "https://i.ibb.co/VV7RYgQ/IMG-1851.png",
-        "title": "Book Name",
-        "author": "Author name",
+        "title": "নির্মল জীবন",
+        "author": "ইমরান রাইহান",
         "authorImg": "https://i.ibb.co/FYM9F5X/author.jpg",
         "type": "Motivational"
     },
     {
         "_id": 2,
         "thumb": "https://i.ibb.co/vdCszqg/IMG-2500.jpg",
-        "title": "Book Name",
-        "author": "Author name",
+        "title": "মুরিদপুরের পীর",
+        "author": "ইমরান রাইহান",
         "authorImg": "https://i.ibb.co/FYM9F5X/author.jpg",
         "type": "Motivational"
     },
     {
         "_id": 3,
         "thumb": "https://i.ibb.co/m6WfT9d/IMG-2501.jpg",
-        "title": "Book Name",
-        "author": "Author name",
+        "title": "শাকহাব প্রান্তরে",
+        "author": "ইমরান রাইহান",
         "authorImg": "https://i.ibb.co/FYM9F5X/author.jpg",
         "type": "Motivational"
     },
     {
         "_id": 4,
         "thumb": "https://i.ibb.co/6b2JrW8/IMG-3454.jpg",
-        "title": "Book Name",
-        "author": "Author name",
+        "title": "মাওয়ায়েজে সাহাবা",
+        "author": "সালেহ আহমেদ শামী. অনুবাদ । মুজাহিদুল ইসলাম মাইমুন",
         "authorImg": "https://i.ibb.co/FYM9F5X/author.jpg",
         "type": "Motivational"
     },
     {
         "_id": 5,
         "thumb": "https://i.ibb.co/MB2pLHj/IMG-5193.jpg",
-        "title": "Book Name",
-        "author": "Author name",
+        "title": "মুসলিম জাতির ইতিহাস",
+        "author": "ড. সুহাইল তাক্কুশ",
         "authorImg": "https://i.ibb.co/FYM9F5X/author.jpg",
         "type": "Motivational"
     },

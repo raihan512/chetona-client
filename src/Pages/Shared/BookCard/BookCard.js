@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const BookCard = ({ book }) => {
-    const { thumb, author, authorImg, title } = book;
+    const { _id, thumb, author, authorImg, title } = book;
     return (
         <div className='w-[310px] sm:w-[350px] h-[150px] sm:h-[180px] rounded-sm border border-[#40A4DC] box-border flex justify-between items-center  mb-10'>
             <div className='w-5/12 h-[155px] sm:h-[175px] -mt-12 ml-2'>
@@ -11,19 +12,22 @@ const BookCard = ({ book }) => {
                 </div>
             </div>
             <div className='w-6/12 pr-1'>
-                <h4 className='text-lg text-[#000000] truncate ...'><strong>{title}</strong></h4>
-                <p className='text-sm md:text-base text-[#565656] truncate ...'><strong>{author}</strong></p>
+                <h4 className='text-lg text-[#000000] pl-1 truncate ...'><strong>{title}</strong></h4>
+                <p className='text-sm md:text-base text-[#565656] pl-1 truncate ...'><strong>{author}</strong></p>
                 <div className='flex mb-2'>
-                    <img src="https://i.ibb.co/31spmfC/black-star.png" className='mr-1 h-[14px]' alt="" />
-                    <img src="https://i.ibb.co/31spmfC/black-star.png" className='mr-1 h-[14px]' alt="" />
-                    <img src="https://i.ibb.co/31spmfC/black-star.png" className='mr-1 h-[14px]' alt="" />
-                    <img src="https://i.ibb.co/31spmfC/black-star.png" className='mr-1 h-[14px]' alt="" />
-                    <img src="https://i.ibb.co/frVwnyC/white-star.png" className='mr-1 h-[14px]' alt="" />
+                    <img src="https://i.ibb.co/31spmfC/black-star.png" className='mr-1 h-[12px]' alt="" />
+                    <img src="https://i.ibb.co/31spmfC/black-star.png" className='mr-1 h-[12px]' alt="" />
+                    <img src="https://i.ibb.co/31spmfC/black-star.png" className='mr-1 h-[12px]' alt="" />
+                    <img src="https://i.ibb.co/31spmfC/black-star.png" className='mr-1 h-[12px]' alt="" />
+                    <img src="https://i.ibb.co/frVwnyC/white-star.png" className='mr-1 h-[12px]' alt="" />
                 </div>
                 <p className='flex items-center mb-1 text-sm md:text-base'><strong>১০০</strong><img src="https://i.ibb.co/f4LLHBy/bdt.png" className="ml-1 h-[12px]" alt="" /></p>
-                <button className='bg-[#40A4DC] py-1 px-3 text-white rounded-sm text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>আরো দেখুন</button>
+                <button
+                    className='bg-[#40A4DC] py-1 px-3 text-white rounded-sm text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>
+                    <Link to={`/bookdetails/${_id}`}>আরো দেখুন</Link>
+                </button>
             </div>
-        </div>
+        </div >
     );
 };
 
