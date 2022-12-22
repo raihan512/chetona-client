@@ -20,7 +20,8 @@ export const Router = createBrowserRouter([
             },
             {
                 path: '/allbooks',
-                element: <AllBooks></AllBooks>
+                element: <AllBooks></AllBooks>,
+                loader: () => fetch('http://localhost:5000/books')
             },
         ]
     }

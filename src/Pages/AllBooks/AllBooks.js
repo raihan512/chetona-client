@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import BookCard from '../Shared/BookCard/BookCard';
 
 const AllBooks = () => {
-    const [allBooks, setAllBooks] = useState([]);
-    useEffect(() => {
-        fetch('books.json')
-            .then(res => res.json())
-            .then(data => setAllBooks(data))
-    }, [])
+    const allBooks = useLoaderData()
     return (
         <section className='max-width'>
             <div className='mx-1.5 md:mx-2.5 mb-14'>
