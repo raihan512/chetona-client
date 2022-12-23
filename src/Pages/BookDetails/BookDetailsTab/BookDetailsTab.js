@@ -36,10 +36,10 @@ const BookDetailsTab = ({ bookDetails, authorInfo }) => {
                                     : <div className='h-[90px] sm:h-[200px] w-[90px] sm:w-[200px] bg-slate-300'></div>}
                                 {/* Social Links */}
                                 <div className='flex mt-4'>
-                                    {socialLinks?.fb ? <a className='text-base text-white bg-[#40A4DC] p-1 mr-1 rounded-full transition-all hover:text-gray-500' href={`${socialLinks.fb}`} target="_blank"><FaFacebookF /></a> : ''}
-                                    {socialLinks?.ins ? <a className='text-base text-white bg-[#40A4DC] p-1 mr-1 rounded-full transition-all hover:text-gray-500' href={`${socialLinks.ins}`} target="_blank"><FaInstagram /></a> : ''}
-                                    {socialLinks?.twitter ? <a className='text-base text-white bg-[#40A4DC] p-1 mr-1 rounded-full transition-all hover:text-gray-500' href={`${socialLinks.twitter}`} target="_blank"><FaTwitter /></a> : ''}
-                                    {socialLinks?.yt ? <a className='text-base text-white bg-[#40A4DC] p-1 mr-1 rounded-full transition-all hover:text-gray-500' href={`${socialLinks.yt}`} target="_blank"><FaYoutube /></a> : ''}
+                                    {socialLinks?.fb ? <a className='text-base text-white bg-[#40A4DC] p-1 mr-1 rounded-full transition-all hover:text-gray-500' href={`${socialLinks.fb}`}><FaFacebookF /></a> : ''}
+                                    {socialLinks?.ins ? <a className='text-base text-white bg-[#40A4DC] p-1 mr-1 rounded-full transition-all hover:text-gray-500' href={`${socialLinks.ins}`}><FaInstagram /></a> : ''}
+                                    {socialLinks?.twitter ? <a className='text-base text-white bg-[#40A4DC] p-1 mr-1 rounded-full transition-all hover:text-gray-500' href={`${socialLinks.twitter}`}><FaTwitter /></a> : ''}
+                                    {socialLinks?.yt ? <a className='text-base text-white bg-[#40A4DC] p-1 mr-1 rounded-full transition-all hover:text-gray-500' href={`${socialLinks.yt}`}><FaYoutube /></a> : ''}
                                     <Link className='text-base text-white bg-[#40A4DC] p-1 ml-8 rounded-full transition-all hover:text-gray-500' to={`/author/${_id}`}><FaEye /></Link>
                                 </div>
                             </div>

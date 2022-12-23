@@ -6,7 +6,7 @@ import BookDetailsTab from './BookDetailsTab/BookDetailsTab';
 const BookDetails = () => {
     const bookDetails = useLoaderData();
     const { img, title, categories, authorId } = bookDetails;
-    // Load Author By thei id
+    // Load Author By their id
     const { data: authorInfo = [] } = useQuery({
         queryKey: ['authorInfo', authorId],
         queryFn: async () => {
@@ -17,6 +17,24 @@ const BookDetails = () => {
     })
     // Destructuring Author Details
     const { author } = authorInfo;
+    // Load Categories 
+    const { data: allCategories = [] } = useQuery({
+        queryKey: ['allCategories'],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/categories`);
+            const data = await res.json();
+            return data;
+        }
+    })
+
+    let thisBookCategories = [];
+    for (let i in allCategories) {
+        // console.log(typeof allCategories[i]._id);
+        if (categories.includes(parseInt(allCategories[i]._id))) {
+            thisBookCategories.push(allCategories[i]);
+            // console.log(allCategories[i]);
+        }
+    }
 
     return (
         <section className='max-width'>
@@ -56,10 +74,11 @@ const BookDetails = () => {
                             <p className='mt-3 text-lg lg:text-xl font-bold'>ট্যাগ</p>
                             <div className='flex'>
                                 {
-                                    categories.map((category, i) => <Link
-                                        key={i}
+                                    thisBookCategories.map((category) => <Link
+                                        key={category._id}
                                         className='font-semibold mr-1 text-base md:text-lg bg-slate-300 pt-0.5 pb-0 px-1.5 rounded-sm'
-                                        to=''>#{category}</Link>)
+                                        to={`/category/${category._id}`}
+                                    >#{category.name}</Link>)
                                 }
                             </div>
                         </div>

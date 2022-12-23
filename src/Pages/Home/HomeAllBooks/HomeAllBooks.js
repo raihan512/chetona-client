@@ -1,17 +1,19 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import book1 from '../../../assets/images/books/buniyad.png'
-import book2 from '../../../assets/images/books/IMG_1062.JPG'
-import book3 from '../../../assets/images/books/IMG_1613.JPG'
-import book4 from '../../../assets/images/books/IMG_1851.PNG'
-import book5 from '../../../assets/images/books/IMG_2500.JPG'
-import book6 from '../../../assets/images/books/IMG_2501.JPG'
-import bdt from '../../../assets/images/icons/bdt.png'
-import author from '../../../assets/images/writter/author.jpeg'
-import whitestar from '../../../assets/images/icons/white-star.png'
-import blackstar from '../../../assets/images/icons/black-star.png'
 import { Link } from 'react-router-dom';
+import BookCard from '../../Shared/BookCard/BookCard';
 
 const HomeAllBooks = () => {
+    // Load all Books
+    const { data: allBooks = [] } = useQuery({
+        queryKey: ['allBooks'],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/books`);
+            const data = await res.json();
+            return data;
+        }
+    })
+    const slicedBooks = allBooks.slice(0, 6);
     return (
         <section className='max-width'>
             <div className='mx-1.5 md:mx-2.5 my-14'>
@@ -21,127 +23,15 @@ const HomeAllBooks = () => {
                     <button className='text-lg md:text-xl lg:text-2xl text-[#666666] underline transition-all hover:text-[#40A4DC] hover:-translate-x-1'><Link to='/allbooks'>ঘুরে দেখুন</Link></button>
                 </div>
                 {/* Sectiontitle */}
-                <div className='flex justify-center lg:justify-between flex-wrap'>
+                <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 justify-items-center">
+
                     {/* Book Item */}
-                    <div className='flex justify-between items-center w-[290px] md:w-[350px] mx-5 lg:mx-0 mb-10 rounded-sm border-2 hover:shadow-xl border-[#40A4DC] pl-2 md:pl-5 pr-3 md:pr-12 transition-all hover:-translate-y-1'>
-                        <div className="relative -mt-5 mb-4 md:mb-8 border-2 p-1 border-[#40A4DC] bg-white rounded-sm">
-                            <img src={book6} className='rounded-sm w-[90px] md:w-[120px]' alt="" />
-                            <img src={author} className='absolute h-[30px] md:h-[50px] w-[30px] md:w-[50px] rounded-full -bottom-4 md:-bottom-6 left-8 md:left-9 border-2 border-[#40A4DC]' alt="" />
-                        </div>
-                        <div>
-                            <h4 className='text-base md:text-lg text-[#000000] leading-4 mb-1'>বাংলায় লরেম ইপ্সাম</h4>
-                            <p className='text-sm md:text-base text-[#565656] mb-1'>বাংলায় লরেম ইপ্সাম</p>
-                            <div className='flex mb-2'>
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={whitestar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                            </div>
-                            <p className='flex items-center mb-1 text-sm md:text-base'><strong>১০০</strong><img src={bdt} className="ml-1 h-[12px]" alt="" /></p>
-                            <button className='bg-[#40A4DC] py-1 px-3 text-white rounded-sm text-xs md:text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>দেখুন</button>
-                        </div>
-                    </div>
-                    {/* Book Item */}
-                    <div className='flex justify-between items-center w-[290px] md:w-[350px] mx-5 lg:mx-0 mb-10 rounded-sm border-2 hover:shadow-xl border-[#40A4DC] pl-2 md:pl-5 pr-3 md:pr-12 transition-all hover:-translate-y-1'>
-                        <div className="relative -mt-5 mb-4 md:mb-8 border-2 p-1 border-[#40A4DC] bg-white rounded-sm">
-                            <img src={book1} className='rounded-sm w-[90px] md:w-[120px]' alt="" />
-                            <img src={author} className='absolute h-[30px] md:h-[50px] w-[30px] md:w-[50px] rounded-full -bottom-4 md:-bottom-6 left-8 md:left-9 border-2 border-[#40A4DC]' alt="" />
-                        </div>
-                        <div>
-                            <h4 className='text-base md:text-lg text-[#000000] leading-4 mb-1'>বাংলায় লরেম ইপ্সাম</h4>
-                            <p className='text-sm md:text-base text-[#565656] mb-1'>বাংলায় লরেম ইপ্সাম</p>
-                            <div className='flex mb-2'>
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={whitestar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                            </div>
-                            <p className='flex items-center mb-1 text-sm md:text-base'><strong>১০০</strong><img src={bdt} className="ml-1 h-[12px]" alt="" /></p>
-                            <button className='bg-[#40A4DC] py-1 px-3 text-white rounded-sm text-xs md:text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>দেখুন</button>
-                        </div>
-                    </div>
-                    {/* Book Item */}
-                    <div className='flex justify-between items-center w-[290px] md:w-[350px] mx-5 lg:mx-0 mb-10 rounded-sm border-2 hover:shadow-xl border-[#40A4DC] pl-2 md:pl-5 pr-3 md:pr-12 transition-all hover:-translate-y-1'>
-                        <div className="relative -mt-5 mb-4 md:mb-8 border-2 p-1 border-[#40A4DC] bg-white rounded-sm">
-                            <img src={book2} className='rounded-sm w-[90px] md:w-[120px]' alt="" />
-                            <img src={author} className='absolute h-[30px] md:h-[50px] w-[30px] md:w-[50px] rounded-full -bottom-4 md:-bottom-6 left-8 md:left-9 border-2 border-[#40A4DC]' alt="" />
-                        </div>
-                        <div>
-                            <h4 className='text-base md:text-lg text-[#000000] leading-4 mb-1'>বাংলায় লরেম ইপ্সাম</h4>
-                            <p className='text-sm md:text-base text-[#565656] mb-1'>বাংলায় লরেম ইপ্সাম</p>
-                            <div className='flex mb-2'>
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={whitestar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                            </div>
-                            <p className='flex items-center mb-1 text-sm md:text-base'><strong>১০০</strong><img src={bdt} className="ml-1 h-[12px]" alt="" /></p>
-                            <button className='bg-[#40A4DC] py-1 px-3 text-white rounded-sm text-xs md:text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>দেখুন</button>
-                        </div>
-                    </div>
-                    {/* Book Item */}
-                    <div className='flex justify-between items-center w-[290px] md:w-[350px] mx-5 lg:mx-0 mb-10 rounded-sm border-2 hover:shadow-xl border-[#40A4DC] pl-2 md:pl-5 pr-3 md:pr-12 transition-all hover:-translate-y-1'>
-                        <div className="relative -mt-5 mb-4 md:mb-8 border-2 p-1 border-[#40A4DC] bg-white rounded-sm">
-                            <img src={book3} className='rounded-sm w-[90px] md:w-[120px]' alt="" />
-                            <img src={author} className='absolute h-[30px] md:h-[50px] w-[30px] md:w-[50px] rounded-full -bottom-4 md:-bottom-6 left-8 md:left-9 border-2 border-[#40A4DC]' alt="" />
-                        </div>
-                        <div>
-                            <h4 className='text-base md:text-lg text-[#000000] leading-4 mb-1'>বাংলায় লরেম ইপ্সাম</h4>
-                            <p className='text-sm md:text-base text-[#565656] mb-1'>বাংলায় লরেম ইপ্সাম</p>
-                            <div className='flex mb-2'>
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={whitestar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                            </div>
-                            <p className='flex items-center mb-1 text-sm md:text-base'><strong>১০০</strong><img src={bdt} className="ml-1 h-[12px]" alt="" /></p>
-                            <button className='bg-[#40A4DC] py-1 px-3 text-white rounded-sm text-xs md:text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>দেখুন</button>
-                        </div>
-                    </div>
-                    {/* Book Item */}
-                    <div className='flex justify-between items-center w-[290px] md:w-[350px] mx-5 lg:mx-0 mb-10 rounded-sm border-2 hover:shadow-xl border-[#40A4DC] pl-2 md:pl-5 pr-3 md:pr-12 transition-all hover:-translate-y-1'>
-                        <div className="relative -mt-5 mb-4 md:mb-8 border-2 p-1 border-[#40A4DC] bg-white rounded-sm">
-                            <img src={book4} className='rounded-sm w-[90px] md:w-[120px]' alt="" />
-                            <img src={author} className='absolute h-[30px] md:h-[50px] w-[30px] md:w-[50px] rounded-full -bottom-4 md:-bottom-6 left-8 md:left-9 border-2 border-[#40A4DC]' alt="" />
-                        </div>
-                        <div>
-                            <h4 className='text-base md:text-lg text-[#000000] leading-4 mb-1'>বাংলায় লরেম ইপ্সাম</h4>
-                            <p className='text-sm md:text-base text-[#565656] mb-1'>বাংলায় লরেম ইপ্সাম</p>
-                            <div className='flex mb-2'>
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={whitestar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                            </div>
-                            <p className='flex items-center mb-1 text-sm md:text-base'><strong>১০০</strong><img src={bdt} className="ml-1 h-[12px]" alt="" /></p>
-                            <button className='bg-[#40A4DC] py-1 px-3 text-white rounded-sm text-xs md:text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>দেখুন</button>
-                        </div>
-                    </div>
-                    {/* Book Item */}
-                    <div className='flex justify-between items-center w-[290px] md:w-[350px] mx-5 lg:mx-0 mb-10 rounded-sm border-2 hover:shadow-xl border-[#40A4DC] pl-2 md:pl-5 pr-3 md:pr-12 transition-all hover:-translate-y-1'>
-                        <div className="relative -mt-5 mb-4 md:mb-8 border-2 p-1 border-[#40A4DC] bg-white rounded-sm">
-                            <img src={book5} className='rounded-sm w-[90px] md:w-[120px]' alt="" />
-                            <img src={author} className='absolute h-[30px] md:h-[50px] w-[30px] md:w-[50px] rounded-full -bottom-4 md:-bottom-6 left-8 md:left-9 border-2 border-[#40A4DC]' alt="" />
-                        </div>
-                        <div>
-                            <h4 className='text-base md:text-lg text-[#000000] leading-4 mb-1'>বাংলায় লরেম ইপ্সাম</h4>
-                            <p className='text-sm md:text-base text-[#565656] mb-1'>বাংলায় লরেম ইপ্সাম</p>
-                            <div className='flex mb-2'>
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={blackstar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                                <img src={whitestar} className='mr-1 h-[12px] md:h-[17px]' alt="" />
-                            </div>
-                            <p className='flex items-center mb-1 text-sm md:text-base'><strong>১০০</strong><img src={bdt} className="ml-1 h-[12px]" alt="" /></p>
-                            <button className='bg-[#40A4DC] py-1 px-3 text-white rounded-sm text-xs md:text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>দেখুন</button>
-                        </div>
-                    </div>
+                    {
+                        slicedBooks.map(book => <BookCard
+                            key={book._id}
+                            book={book}
+                        ></BookCard>)
+                    }
                 </div>
             </div>
         </section>
