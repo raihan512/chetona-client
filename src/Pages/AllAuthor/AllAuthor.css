@@ -1,0 +1,27 @@
+.single-author {
+    position: relative;
+}
+
+.single-author:hover .overlay {
+    visibility: visible;
+    height: 100%;
+    width: 100%;
+}
+
+.single-author .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #40A4DC;
+    visibility: hidden;
+    transition: ease-in;
+}
+
+.single-author .overlay button {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+}

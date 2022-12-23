@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main/Main";
+import AllAuthor from "../../Pages/AllAuthor/AllAuthor";
 import AllBooks from "../../Pages/AllBooks/AllBooks";
+import Author from "../../Pages/Author/Author";
 import BookDetails from "../../Pages/BookDetails/BookDetails";
 import Categories from "../../Pages/Categories/Categories";
 import Category from "../../Pages/Category/Category";
@@ -19,22 +21,32 @@ export const Router = createBrowserRouter([
             {
                 path: '/bookdetails/:id',
                 element: <BookDetails></BookDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/book/${params.id}`)
+                loader: ({ params }) => fetch(`https://chetona-server-raihan512.vercel.app/book/${params.id}`)
             },
             {
                 path: '/allbooks',
                 element: <AllBooks></AllBooks>,
-                loader: () => fetch('http://localhost:5000/books')
+                loader: () => fetch('https://chetona-server-raihan512.vercel.app/books')
             },
             {
                 path: '/categories',
                 element: <Categories></Categories>,
-                loader: () => fetch('http://localhost:5000/categories')
+                loader: () => fetch('https://chetona-server-raihan512.vercel.app/categories')
             },
             {
                 path: '/category/:id',
                 element: <Category></Category>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://chetona-server-raihan512.vercel.app/category/${params.id}`)
+            },
+            {
+                path: "/authors",
+                element: <AllAuthor></AllAuthor>,
+                loader: () => fetch("https://chetona-server-raihan512.vercel.app/authors")
+            },
+            {
+                path: "/author/:id",
+                element: <Author></Author>,
+                loader: ({ params }) => fetch(`https://chetona-server-raihan512.vercel.app/author/${params.id}`)
             },
             {
                 path: '*',

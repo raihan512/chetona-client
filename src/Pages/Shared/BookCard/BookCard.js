@@ -8,7 +8,7 @@ const BookCard = ({ book }) => {
     const { data: authorInfo = [] } = useQuery({
         queryKey: ['authorInfo', authorId],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/author/${authorId}`);
+            const res = await fetch(`https://chetona-server-raihan512.vercel.app/author/${authorId}`);
             const data = await res.json();
             return data;
         }
