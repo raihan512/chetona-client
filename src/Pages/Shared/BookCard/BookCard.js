@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { CartProvider } from '../../../Contexts/CartContext/CartContext';
 
 const BookCard = ({ book }) => {
+    const { addToCart } = useContext(CartProvider)
     const { _id, thumb, title, authorId } = book;
     // Load Author By thei id
     const { data: authorInfo = [] } = useQuery({
@@ -36,8 +38,14 @@ const BookCard = ({ book }) => {
                 </div>
                 <p className='flex items-center mb-1 text-sm md:text-base'><strong>১০০</strong><img src="https://i.ibb.co/f4LLHBy/bdt.png" className="ml-1 h-[12px]" alt="" /></p>
                 <button
-                    className='bg-[#40A4DC] py-1 px-3 text-white rounded-sm text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>
-                    <Link to={`/bookdetails/${_id}`}>আরো দেখুন</Link>
+                    className='bg-[#40A4DC] py-1 px-5 mr-2 text-white rounded-sm text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>
+                    <Link to={`/bookdetails/${_id}`}>দেখুন</Link>
+                </button>
+                <button
+                    onClick={() => addToCart(book)}
+                    className='bg-white py-1 px-5 mr-2 text-[#40A4DC] rounded-sm text-sm border border-transparent hover:bg-[#40A4DC] hover:text-white
+                     hover:border-[#40A4DC]'>
+                    কিনুন
                 </button>
             </div>
         </div >

@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Toaster } from 'react-hot-toast';
+import CartContext from './Contexts/CartContext/CartContext';
 
 const queryClient = new QueryClient();
 
@@ -13,7 +15,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <QueryClientProvider client={queryClient}>
     <React.StrictMode>
-      <App />
+      <CartContext>
+        <App />
+        <Toaster />
+      </CartContext>
     </React.StrictMode>
   </QueryClientProvider>
 );

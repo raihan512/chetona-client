@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HiMenuAlt3, HiOutlineX } from "react-icons/hi";
-import logo from '../../../../assets/images/logo.png';
-import dropdownicon from '../../../../assets/images/icons/navbar/dropdown.png';
-import search from '../../../../assets/images/icons/navbar/search.png';
-import user from '../../../../assets/images/icons/navbar/user.png';
-import cart from '../../../../assets/images/icons/navbar/cart.png';
+import logo from '../../../assets/images/logo.png';
+import dropdownicon from '../../../assets/images/icons/navbar/dropdown.png';
+import search from '../../../assets/images/icons/navbar/search.png';
+import user from '../../../assets/images/icons/navbar/user.png';
+import cartIcon from '../../../assets/images/icons/navbar/cart.png';
 import { useQuery } from '@tanstack/react-query';
+import { CartProvider } from '../../../Contexts/CartContext/CartContext';
 
 const Navbar = () => {
+    const { cart } = useContext(CartProvider);
     const [dropdown, setDropdown] = useState(false);
     const [mobileNav, setMobileNav] = useState(false);
     // Load All Categories
@@ -29,7 +31,7 @@ const Navbar = () => {
         <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b md:px-1 lg:px-2 mx-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2 relative'>
             <p className='flex items-center pl-3 pr-20 md:pl-0 md:pr-0 cursor-pointer' onClick={() => setDropdown(!dropdown)}>ক্যাটাগরি <img src={dropdownicon} className="h-[7px] ml-2" alt="" /></p>
             {/* Dropdown Menu */}
-            <ul className={`absolute z-30 top-9 left-40 md:left-10 bg-[#40A4DC] rounded-sm py-1 ${dropdown ? 'block' : 'hidden'}`}>
+            <ul className={`absolute z-40 top-9 left-40 md:left-10 bg-[#40A4DC] rounded-sm py-1 ${dropdown ? 'block' : 'hidden'}`}>
                 <li className='md:text-lg lg:text-xl text-white hover:bg-white hover:text-black'><Link className='pl-6 pr-20' to='/categories' onClick={() => setDropdown(!dropdown)}>সকল</Link></li>
                 {
                     categories.map((category) => <li
@@ -48,48 +50,53 @@ const Navbar = () => {
         <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b md:px-2 ml-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link className='pl-3 pr-20 md:pl-0 md:pr-0' to=''>ক্যাম্পেইন</Link></li>
     </>
     return (
-        <nav className='flex justify-between items-center mt-7 mb-6'>
-            <Link to='/'>
-                <img src={logo} className="h-[40px] md:h-[45px] lg:h-[73px]" alt="" />
-            </Link>
-            {/* Menubar */}
-            <div>
-                {/* DeskTop Menubar */}
-                <ul className='hidden md:flex'>
-                    {menuItems}
-                </ul>
-                {/* mobile Menu Bar */}
-                <ul className={`flex flex-col md:hidden z-30 absolute top-0 h-screen bg-[#40A4DC] ${mobileNav ? 'left-0' : '-left-[500px]'}`}>
-                    {menuItems}
-                </ul>
-            </div>
-            {/* User Info */}
-            <div className='flex'>
-                {/* Search Icon */}
-                <button>
-                    <img src={search} className="h-[17.8px] " alt="" />
-                </button>
-                {/* User Avtar icon */}
-                <button>
-                    <img src={user} className="h-[18px] ml-2" alt="" />
-                </button>
-                {/* Cart Icon */}
-                <button className='relative'>
-                    <div className='absolute h-4 w-4 bg-[#40A4DC] rounded-full left-4 -top-1.5 flex justify-center items-center'>
-                        <p className='text-white text-xs'>০</p>
+        <nav className='sticky top-0 left-0 z-40 bg-[#F6F6F6]'>
+            <div className="max-width">
+                <div className='flex justify-between items-center mt-7 mb-6'>
+                    <Link to='/'>
+                        <img src={logo} className="h-[40px] md:h-[45px] lg:h-[73px]" alt="" />
+                    </Link>
+                    {/* Menubar */}
+                    <div>
+                        {/* DeskTop Menubar */}
+                        <ul className='hidden md:flex'>
+                            {menuItems}
+                        </ul>
+                        {/* mobile Menu Bar */}
+                        <ul className={`flex flex-col md:hidden z-30 absolute top-0 h-screen bg-[#40A4DC] ${mobileNav ? 'left-0' : '-left-[500px]'}`}>
+                            {menuItems}
+                        </ul>
                     </div>
-                    <img src={cart} className="h-[18.9px] ml-2" alt="" />
-                </button>
-                {/* Mobile Menu Button */}
-                <button className='md:hidden' onClick={() => setMobileNav(!mobileNav)}>
-                    {
-                        mobileNav ?
-                            < HiOutlineX className='text-2xl text-[#40A4DC] ml-5' /> :
-                            <HiMenuAlt3 className='text-2xl text-[#40A4DC] ml-5' />
-                    }
-                </button>
+                    {/* User Info */}
+                    <div className='flex'>
+                        {/* Search Icon */}
+                        <button>
+                            <img src={search} className="h-[17.8px] " alt="" />
+                        </button>
+                        {/* User Avtar icon */}
+                        <button>
+                            <img src={user} className="h-[18px] ml-2" alt="" />
+                        </button>
+                        {/* Cart Icon */}
+                        <button className='relative'>
+                            <div className='absolute h-4 w-4 bg-[#40A4DC] rounded-full left-4 -top-1.5 flex justify-center items-center'>
+                                <p className='text-white text-xs'>{cart.length}</p>
+                            </div>
+                            <img src={cartIcon} className="h-[18.9px] ml-2" alt="" />
+                        </button>
+                        {/* Mobile Menu Button */}
+                        <button className='md:hidden' onClick={() => setMobileNav(!mobileNav)}>
+                            {
+                                mobileNav ?
+                                    < HiOutlineX className='text-2xl text-[#40A4DC] ml-5' /> :
+                                    <HiMenuAlt3 className='text-2xl text-[#40A4DC] ml-5' />
+                            }
+                        </button>
+                    </div>
+                </div>
             </div>
-        </nav>
+        </nav >
+
     );
 };
 
