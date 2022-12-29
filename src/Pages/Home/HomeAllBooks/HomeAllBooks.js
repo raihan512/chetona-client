@@ -8,7 +8,7 @@ const HomeAllBooks = () => {
     const { data: allBooks = [] } = useQuery({
         queryKey: ['allBooks'],
         queryFn: async () => {
-            const res = await fetch(`https://chetona-server-raihan512.vercel.app/books`);
+            const res = await fetch(`http://localhost:5000/books`);
             const data = await res.json();
             return data;
         }

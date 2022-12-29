@@ -1,4 +1,19 @@
 @tailwind base;
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #40A4DC;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #40A4DC;
+  border: 3px solid #333333;
+}
+
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
@@ -10,6 +25,7 @@
 
 
 body {
+
   background-color: #F6F6F6;
   margin: 0;
   font-family: kalpurush, sans-serif;

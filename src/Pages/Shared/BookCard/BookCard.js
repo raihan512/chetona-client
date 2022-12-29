@@ -5,12 +5,12 @@ import { CartProvider } from '../../../Contexts/CartContext/CartContext';
 
 const BookCard = ({ book }) => {
     const { addToCart } = useContext(CartProvider)
-    const { _id, thumb, title, authorId } = book;
+    const { _id, thumb, title, authorId, price } = book;
     // Load Author By thei id
     const { data: authorInfo = [] } = useQuery({
         queryKey: ['authorInfo', authorId],
         queryFn: async () => {
-            const res = await fetch(`https://chetona-server-raihan512.vercel.app/author/${authorId}`);
+            const res = await fetch(`http://localhost:5000/author/${authorId}`);
             const data = await res.json();
             return data;
         }
@@ -36,17 +36,19 @@ const BookCard = ({ book }) => {
                     <img src="https://i.ibb.co/31spmfC/black-star.png" className='mr-1 h-[12px]' alt="" />
                     <img src="https://i.ibb.co/frVwnyC/white-star.png" className='mr-1 h-[12px]' alt="" />
                 </div>
-                <p className='flex items-center mb-1 text-sm md:text-base'><strong>১০০</strong><img src="https://i.ibb.co/f4LLHBy/bdt.png" className="ml-1 h-[12px]" alt="" /></p>
-                <button
-                    className='bg-[#40A4DC] py-1 px-5 mr-2 text-white rounded-sm text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>
-                    <Link to={`/bookdetails/${_id}`}>দেখুন</Link>
-                </button>
-                <button
-                    onClick={() => addToCart(book)}
-                    className='bg-white py-1 px-5 mr-2 text-[#40A4DC] rounded-sm text-sm border border-transparent hover:bg-[#40A4DC] hover:text-white
+                <p className='flex items-center mb-1 text-sm md:text-base'><strong>{price}</strong><img src="https://i.ibb.co/f4LLHBy/bdt.png" className="ml-1 h-[12px]" alt="" /></p>
+                <div className='flex'>
+                    <button
+                        className='bg-[#40A4DC] py-1 px-5 mr-2 text-white rounded-sm text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>
+                        <Link to={`/bookdetails/${_id}`}>দেখুন</Link>
+                    </button>
+                    <button
+                        onClick={() => addToCart(book)}
+                        className='bg-white py-1 px-5 mr-2 text-[#40A4DC] rounded-sm text-sm border border-transparent hover:bg-[#40A4DC] hover:text-white
                      hover:border-[#40A4DC]'>
-                    কিনুন
-                </button>
+                        কিনুন
+                    </button>
+                </div>
             </div>
         </div >
     );

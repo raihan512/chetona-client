@@ -5,12 +5,12 @@ import BookDetailsTab from './BookDetailsTab/BookDetailsTab';
 
 const BookDetails = () => {
     const bookDetails = useLoaderData();
-    const { img, title, categories, authorId } = bookDetails;
+    const { img, title, categories, authorId, price } = bookDetails;
     // Load Author By their id
     const { data: authorInfo = [] } = useQuery({
         queryKey: ['authorInfo', authorId],
         queryFn: async () => {
-            const res = await fetch(`https://chetona-server-raihan512.vercel.app/author/${authorId}`);
+            const res = await fetch(`http://localhost:5000/author/${authorId}`);
             const data = await res.json();
             return data;
         }
@@ -21,7 +21,7 @@ const BookDetails = () => {
     const { data: allCategories = [] } = useQuery({
         queryKey: ['allCategories'],
         queryFn: async () => {
-            const res = await fetch(`https://chetona-server-raihan512.vercel.app/categories`);
+            const res = await fetch(`http://localhost:5000/categories`);
             const data = await res.json();
             return data;
         }
@@ -60,7 +60,7 @@ const BookDetails = () => {
                                 <img src="https://i.ibb.co/frVwnyC/white-star.png" className='mr-1 h-[12px] md:h-[15px] lg:h-[17px]' alt="" />
                             </div>
                             <p className='flex items-center text-xl md:text-2xl lg:text-3xl py-2 lg:py-5'>
-                                <strong><span className='mr-1'>১০০</span>&#2547;</strong>
+                                <strong><span className='mr-1'>{price}</span>&#2547;</strong>
                             </p>
                             <div className='pt-2 lg:pt-5 pb-4 md:pb-6 lg:pb-10 border-b-2'>
                                 <button
