@@ -14,7 +14,7 @@ const Navbar = () => {
     const { cart } = useContext(CartProvider);
     const [dropdown, setDropdown] = useState(false);
     const [mobileNav, setMobileNav] = useState(false);
-    const [showCartMenu, setShowCartMenu] = useState(false)
+    const [showCartMenu, setShowCartMenu] = useState(true)
     // Load All Categories
     const { data: categories = [] } = useQuery({
         queryKey: ['categories'],

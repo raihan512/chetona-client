@@ -4,7 +4,6 @@ import { } from "./AllAuthor.css";
 import { TfiUser } from "react-icons/tfi";
 const AllAuthor = () => {
     const authors = useLoaderData();
-    console.log(authors);
     return (
         <section className='max-width'>
             <div className='mx-1.5 md:mx-2.5 mb-14'>
