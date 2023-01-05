@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
 import { CartProvider } from '../../../Contexts/CartContext/CartContext';
 
 const BookCard = ({ book }) => {
@@ -30,13 +31,13 @@ const BookCard = ({ book }) => {
                 <h4 className='text-lg text-[#000000] pl-1 truncate ...'><strong>{title}</strong></h4>
                 <p className='text-sm md:text-base text-[#565656] pl-1 truncate ...'><strong>{`${author ? author : 'প্রযোজ্য নয়'}`}</strong></p>
                 <div className='flex mb-2'>
-                    <img src="https://i.ibb.co/31spmfC/black-star.png" className='mr-1 h-[12px]' alt="" />
-                    <img src="https://i.ibb.co/31spmfC/black-star.png" className='mr-1 h-[12px]' alt="" />
-                    <img src="https://i.ibb.co/31spmfC/black-star.png" className='mr-1 h-[12px]' alt="" />
-                    <img src="https://i.ibb.co/31spmfC/black-star.png" className='mr-1 h-[12px]' alt="" />
-                    <img src="https://i.ibb.co/frVwnyC/white-star.png" className='mr-1 h-[12px]' alt="" />
+                    <BsStarFill className='mr-0.5 text-[#40A4DC]' />
+                    <BsStarFill className='mr-0.5 text-[#40A4DC]' />
+                    <BsStarFill className='mr-0.5 text-[#40A4DC]' />
+                    <BsStarHalf className='mr-0.5 text-[#40A4DC]' />
+                    <BsStar className='mr-0.5 text-[#40A4DC]' />
                 </div>
-                <p className='flex items-center mb-1 text-sm md:text-base'><strong>{price}</strong><img src="https://i.ibb.co/f4LLHBy/bdt.png" className="ml-1 h-[12px]" alt="" /></p>
+                <p className='flex items-center mb-1 text-sm md:text-base'><strong>{price}&#2547;</strong></p>
                 <div className='flex'>
                     <button
                         className='bg-[#40A4DC] py-1 px-5 mr-2 text-white rounded-sm text-sm border border-transparent hover:bg-white hover:text-[#40A4DC] hover:border-[#40A4DC]'>

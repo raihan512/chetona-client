@@ -2,7 +2,7 @@ import React from 'react';
 
 const Subscribe = () => {
     return (
-        <section className='bg-[#40A4DC] py-10'>
+        <section className='bg-[#40A4DC] py-10' id='subscribe'>
             <div className="max-width">
                 <div className='mx-1.5 md:mx-2.5'>
                     <div className="flex flex-col sm:flex-row justify-between md:items-center">

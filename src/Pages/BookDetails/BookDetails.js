@@ -2,6 +2,8 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import BookDetailsTab from './BookDetailsTab/BookDetailsTab';
+import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
+
 
 const BookDetails = () => {
     const bookDetails = useLoaderData();
@@ -50,11 +52,11 @@ const BookDetails = () => {
                             <h5 className='text-base md:text-lg lg:text-xl font-semibold hover:text-[#40A4DC]'><Link to={`author/${authorId}`}>{author}</Link></h5>
                             {/* Rating */}
                             <div className='flex pt-2 pb-5 md:pb-8 lg:pb-14 border-b-2'>
-                                <img src="https://i.ibb.co/31spmfC/black-star.png" className='mr-1 h-[12px] md:h-[15px] lg:h-[17px]' alt="" />
-                                <img src="https://i.ibb.co/31spmfC/black-star.png" className='mr-1 h-[12px] md:h-[15px] lg:h-[17px]' alt="" />
-                                <img src="https://i.ibb.co/31spmfC/black-star.png" className='mr-1 h-[12px] md:h-[15px] lg:h-[17px]' alt="" />
-                                <img src="https://i.ibb.co/31spmfC/black-star.png" className='mr-1 h-[12px] md:h-[15px] lg:h-[17px]' alt="" />
-                                <img src="https://i.ibb.co/frVwnyC/white-star.png" className='mr-1 h-[12px] md:h-[15px] lg:h-[17px]' alt="" />
+                                <BsStarFill className='mr-2 text-[#40A4DC] text-xl' />
+                                <BsStarFill className='mr-2 text-[#40A4DC] text-xl' />
+                                <BsStarFill className='mr-2 text-[#40A4DC] text-xl' />
+                                <BsStarHalf className='mr-2 text-[#40A4DC] text-xl' />
+                                <BsStar className='mr-2 text-[#40A4DC] text-xl' />
                             </div>
                             <p className='flex items-center text-xl md:text-2xl lg:text-3xl py-2 lg:py-5'>
                                 <strong><span className='mr-1'>{price}</span>&#2547;</strong>

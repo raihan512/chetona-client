@@ -30,7 +30,7 @@ const Header = () => {
                             <li className='text-sm md:text-base text-[#414141] px-1 border-l-2 hidden md:hidden lg:block'><Link to=''>অন্যান্য</Link></li>
                             <li className='text-sm md:text-base text-[#414141] px-1 border-l-2'><Link to=''>যোগাযোগ</Link></li>
                             <li className='text-sm md:text-base text-[#414141] px-1 border-l-2'><Link to=''>একাউন্ট</Link></li>
-                            <li><button className='bg-[#40A4DC] text-sm md:text-base leading-3 md:leading-4 text-white rounded-sm py-1 px-2'>সাবস্ক্রাইব করুন</button></li>
+                            <li><a href='#subscribe' className='bg-[#40A4DC] text-sm md:text-base leading-3 md:leading-4 text-white rounded-sm py-1 px-2'>সাবস্ক্রাইব করুন</a ></li>
                         </ul>
                     </div>
                 </div>
