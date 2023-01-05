@@ -8,8 +8,9 @@ const Cart = () => {
     const discount = 200;
     const deliveryCharge = 50;
     for (let i in cart) {
-        totalPrice = totalPrice + parseInt(cart[i].totalPrice);
+        totalPrice = totalPrice + (cart[i].totalPrice);
     }
+
     const finalTotal = (deliveryCharge + totalPrice) - discount;
 
     const handleIncreaseItem = ({ price, id }) => {
@@ -31,12 +32,8 @@ const Cart = () => {
                 totalPrice: price
             } : item)))
     }
-    const handleDeleteItem = id => {
-        const selectedItem = cart.find(item => item._id === id);
-        cart.splice(cart.indexOf(selectedItem), 1)
-        setCart(cart)
-        console.log(cart);
-    }
+
+
     return (
         <section className='max-width'>
             <div className='mx-1.5 md:mx-2.5 mb-14'>
@@ -48,8 +45,7 @@ const Cart = () => {
                             key={item._id}
                             item={item}
                             handleIncreaseItem={handleIncreaseItem}
-                            handleDecreaseItem={handleDecreaseItem}
-                            handleDeleteItem={handleDeleteItem}>
+                            handleDecreaseItem={handleDecreaseItem}>
                         </CartItem>)
                     }
                 </div>

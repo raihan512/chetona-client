@@ -10,7 +10,7 @@ const BookDetails = () => {
     const { data: authorInfo = [] } = useQuery({
         queryKey: ['authorInfo', authorId],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/author/${authorId}`);
+            const res = await fetch(`https://chetona-server-raihan512.vercel.app/author/${authorId}`);
             const data = await res.json();
             return data;
         }
@@ -21,18 +21,15 @@ const BookDetails = () => {
     const { data: allCategories = [] } = useQuery({
         queryKey: ['allCategories'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/categories`);
+            const res = await fetch(`https://chetona-server-raihan512.vercel.app/categories`);
             const data = await res.json();
             return data;
         }
     })
-
     let thisBookCategories = [];
     for (let i in allCategories) {
-        // console.log(typeof allCategories[i]._id);
-        if (categories.includes(parseInt(allCategories[i]._id))) {
+        if (categories.includes(allCategories[i]._id)) {
             thisBookCategories.push(allCategories[i]);
-            // console.log(allCategories[i]);
         }
     }
 

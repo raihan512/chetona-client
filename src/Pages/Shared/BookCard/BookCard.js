@@ -5,12 +5,12 @@ import { CartProvider } from '../../../Contexts/CartContext/CartContext';
 
 const BookCard = ({ book }) => {
     const { addToCart } = useContext(CartProvider)
-    const { _id, thumb, title, authorId, price } = book;
+    const { _id, img, title, authorId, price } = book;
     // Load Author By thei id
     const { data: authorInfo = [] } = useQuery({
         queryKey: ['authorInfo', authorId],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/author/${authorId}`);
+            const res = await fetch(`https://chetona-server-raihan512.vercel.app/author/${authorId}`);
             const data = await res.json();
             return data;
         }
@@ -22,7 +22,7 @@ const BookCard = ({ book }) => {
         <div className='w-[310px] sm:w-[350px] h-[150px] sm:h-[180px] rounded-sm border border-[#40A4DC] box-border flex justify-between items-center  mb-10'>
             <div className='w-5/12 h-[155px] sm:h-[175px] -mt-12 ml-2'>
                 <div className='h-[155px] sm:h-[175px] relative'>
-                    <img src={thumb} className="h-full p-1 border-2 border-[#40A4DC] bg-[#F6F6F6]" alt="" />
+                    <img src={img} className="h-full p-1 border-2 border-[#40A4DC] bg-[#F6F6F6]" alt="" />
                     <img src={`${authorImg ? authorImg : 'https://i.ibb.co/cJSy10s/user-50-X50.png'}`} className='absolute -bottom-3 sm:-bottom-5 left-1/4 h-[35px] sm:h-[50px] w-[35px] sm:w-[50px] bg-slate-300 rounded-full border-2 border-[#40A4DC]' alt="" />
                 </div>
             </div>

@@ -7,7 +7,7 @@ const CartMenu = () => {
     const { cart } = useContext(CartProvider);
     let totalPrice = 0;
     for (let i in cart) {
-        totalPrice = totalPrice + parseInt(cart[i].totalPrice);
+        totalPrice = totalPrice + (cart[i].totalPrice);
     }
     return (
         <div className='bg-[#40A4DC] p-2'>

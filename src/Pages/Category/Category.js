@@ -8,7 +8,7 @@ const Category = () => {
     const { data: allBooks = [] } = useQuery({
         queryKey: ['allBooks'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/books`);
+            const res = await fetch(`https://chetona-server-raihan512.vercel.app/books`);
             const data = await res.json();
             return data;
         }
@@ -16,7 +16,7 @@ const Category = () => {
 
     const bookCategories = [];
     for (let i in allBooks) {
-        if (allBooks[i].categories.includes(parseInt(category._id))) {
+        if (allBooks[i].categories.includes(category._id)) {
             bookCategories.push(allBooks[i]);
         }
     }
