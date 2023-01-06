@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main/Main";
+import AddBook from "../../Pages/AddBook/AddBook";
 import AllAuthor from "../../Pages/AllAuthor/AllAuthor";
 import AllBooks from "../../Pages/AllBooks/AllBooks";
 import Author from "../../Pages/Author/Author";
@@ -28,6 +29,10 @@ export const Router = createBrowserRouter([
                 path: '/allbooks',
                 element: <AllBooks></AllBooks>,
                 loader: () => fetch('https://chetona-server-raihan512.vercel.app/books')
+            },
+            {
+                path: '/addbook',
+                element: <AddBook></AddBook>
             },
             {
                 path: '/categories',

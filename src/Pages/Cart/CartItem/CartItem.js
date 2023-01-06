@@ -5,8 +5,8 @@ import { useQuery } from '@tanstack/react-query';
 import { CartProvider } from '../../../Contexts/CartContext/CartContext';
 
 const CartItem = ({ item, handleIncreaseItem, handleDecreaseItem }) => {
-    const { cart, setCartDelItem } = useContext(CartProvider);
-    const { _id, thumb, title, authorId, price, totalPrice, addedToCart } = item;
+    const { _id, img, title, authorId, price, totalPrice, addedToCart } = item;
+    const { removeFromCart } = useContext(CartProvider)
     // Load Author
     const { data: allAuthor = [] } = useQuery({
         queryKey: ['allAuthor'],
@@ -19,15 +19,10 @@ const CartItem = ({ item, handleIncreaseItem, handleDecreaseItem }) => {
     // This book author
     let selectedBookauthor = allAuthor.find(author => authorId === author._id);
 
-    const handleDeleteItem = id => {
-        setCartDelItem(cart.find(item => item.id === cart._id));
-        // console.log(cart.find(item => item.id === cart._id));
-    }
-
     return (
         <div className=' flex justify-between items-center p-2 border border-[#40A4DC] border-b-0 last:border-b'>
             <div>
-                <img src={thumb} className="h-24 md:h-40 mr-1" alt="" />
+                <img src={img} className="h-24 md:h-40 mr-1" alt="" />
             </div>
             <div className='sm:flex justify-between items-center w-9/12'>
                 {/* title */}
@@ -48,7 +43,7 @@ const CartItem = ({ item, handleIncreaseItem, handleDecreaseItem }) => {
                     <div className="flex items-center">
                         <button onClick={() => handleIncreaseItem({ price: totalPrice + price, id: _id })}><TbSquarePlus className='text-xl md:text-2xl text-[#40A4DC]' /></button>
                         <button onClick={() => handleDecreaseItem({ price: totalPrice - price, id: _id })}><TbSquareMinus className='text-xl md:text-2xl text-[#40A4DC]' /></button>
-                        <button onClick={() => handleDeleteItem(_id)}><RiDeleteBin6Fill className='text-xl md:text-2xl text-red-600 ml-2' /></button>
+                        <button onClick={() => removeFromCart(item)}><RiDeleteBin6Fill className='text-xl md:text-2xl text-red-600 ml-2' /></button>
                     </div>
                 </div>
             </div>

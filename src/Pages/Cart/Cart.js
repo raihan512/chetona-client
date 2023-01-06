@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { CartProvider } from '../../Contexts/CartContext/CartContext';
 import CartItem from './CartItem/CartItem';
 
@@ -32,8 +32,6 @@ const Cart = () => {
                 totalPrice: price
             } : item)))
     }
-
-
     return (
         <section className='max-width'>
             <div className='mx-1.5 md:mx-2.5 mb-14'>
@@ -45,8 +43,8 @@ const Cart = () => {
                             key={item._id}
                             item={item}
                             handleIncreaseItem={handleIncreaseItem}
-                            handleDecreaseItem={handleDecreaseItem}>
-                        </CartItem>)
+                            handleDecreaseItem={handleDecreaseItem}
+                        ></CartItem>)
                     }
                 </div>
                 <div className='pt-5 pr-5 ml-auto sm:w-96'>
