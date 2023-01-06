@@ -41,9 +41,21 @@ const CartItem = ({ item, handleIncreaseItem, handleDecreaseItem }) => {
                         <strong className='text-base md:text-lg lg:text-xl text-[#40A4DC] mr-2'>{totalPrice}&#2547;</strong>
                     </div>
                     <div className="flex items-center">
-                        <button onClick={() => handleIncreaseItem({ price: totalPrice + price, id: _id })}><TbSquarePlus className='text-xl md:text-2xl text-[#40A4DC]' /></button>
-                        <button onClick={() => handleDecreaseItem({ price: totalPrice - price, id: _id })}><TbSquareMinus className='text-xl md:text-2xl text-[#40A4DC]' /></button>
-                        <button onClick={() => removeFromCart(item)}><RiDeleteBin6Fill className='text-xl md:text-2xl text-red-600 ml-2' /></button>
+                        {/* Increase button */}
+                        <button
+                            onClick={() => handleIncreaseItem({ price: totalPrice + price, id: _id })}
+                        ><TbSquarePlus className='text-xl md:text-2xl text-[#40A4DC]' />
+                        </button>
+                        {/* Decrease button */}
+                        <button
+                            onClick={() => handleDecreaseItem({ price: totalPrice - price, id: _id })}
+                        ><TbSquareMinus className='text-xl md:text-2xl text-[#40A4DC]' />
+                        </button>
+                        {/* Remove button */}
+                        <button
+                            onClick={() => removeFromCart(item)}
+                        ><RiDeleteBin6Fill className='text-xl md:text-2xl text-red-600 ml-2' />
+                        </button>
                     </div>
                 </div>
             </div>

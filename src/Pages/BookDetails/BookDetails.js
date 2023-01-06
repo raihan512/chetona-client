@@ -1,13 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import BookDetailsTab from './BookDetailsTab/BookDetailsTab';
 import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
+import { CartProvider } from '../../Contexts/CartContext/CartContext';
 
 
 const BookDetails = () => {
     const bookDetails = useLoaderData();
     const { img, title, categories, authorId, price } = bookDetails;
+    const { addToCart } = useContext(CartProvider)
+
     // Load Author By their id
     const { data: authorInfo = [] } = useQuery({
         queryKey: ['authorInfo', authorId],
@@ -63,6 +66,7 @@ const BookDetails = () => {
                             </p>
                             <div className='pt-2 lg:pt-5 pb-4 md:pb-6 lg:pb-10 border-b-2'>
                                 <button
+                                    onClick={() => addToCart(bookDetails)}
                                     className='text-sm md:text-base lg:text-lg font-semibold text-white pt-2 pb-1.5 w-20 md:w-28 lg:w-36 rounded-[3px] bg-[#40A4DC] mr-2 border border-transparent hover:bg-white hover:border-[#40A4Dc] hover:text-[#40A4Dc] transition-all hover:-translate-y-1 hover:shadow-lg'>
                                     কিনুন</button>
                                 <button
