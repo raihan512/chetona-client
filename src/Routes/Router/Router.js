@@ -52,7 +52,7 @@ export const Router = createBrowserRouter([
             {
                 path: "/author/:id",
                 element: <Author></Author>,
-                loader: ({ params }) => fetch(`https://chetona-server-raihan512.vercel.app/author/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/${params.id}`)
             },
             {
                 path: '/cart',
