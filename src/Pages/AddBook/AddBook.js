@@ -1,36 +1,61 @@
+import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { } from './AddBook.css'
 
 const AddBook = () => {
-    const [data, setData] = useState("")
+    const [ok, setOk] = useState(false)
+    console.log(ok);
+    // Load Authors
+    const { data: authors = [] } = useQuery({
+        queryKey: ['authors'],
+        queryFn: async () => {
+            const res = await fetch(`https://chetona-server-raihan512.vercel.app/authors`);
+            const data = await res.json();
+            return data;
+        }
+    })
+    // Load categories
+    const { data: categories = [] } = useQuery({
+        queryKey: ['categories'],
+        queryFn: async () => {
+            const res = await fetch(`https://chetona-server-raihan512.vercel.app/categories`);
+            const data = await res.json();
+            return data;
+        }
+    })
+
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const addBook = data => {
+    const onSubmit = data => {
         console.log(data);
-    }
+    };
+
     return (
         <section className='max-width'>
             <div className='mx-1.5 md:mx-2.5 mb-14'>
-                <h3 className='text-2xl md:text-4xl lg:text-6xl font-black text-[#40A4DC] text-center mt-5 mb-10'>নতুন বই যুক্ত করুন</h3>
-                {/* Book add form */}
-                <form onSubmit={handleSubmit(addBook)}>
-                    {/* Input field */}
-                    <div className="flex flex-col mb-2">
-                        <label htmlFor="book-name" className="text-xl mb-2 font-semibold cursor-pointer">বই এর নাম লিখুন</label>
-                        <input {...register("firstName")} placeholder="যেমনঃ শিক্ষিত বালক" id="book-name" className="py-2 px-8 rounded-sm border border-[#40A4DC] focus-within:outline-none" />
-                    </div>
-                    {/* Input field */}
-                    <div>
-                        <select {...register("category", { required: true })} className="py-2 px-8 rounded-sm border border-[#40A4DC] focus-within:outline-none">
-                            <option value="">লেখক...</option>
-                            <option value="A">Option A</option>
-                            <option value="B">Option B</option>
-                        </select>
+                <div className="w-10/12 ml-auto">
+                    <h3 className='text-2xl md:text-4xl lg:text-6xl font-black text-[#40A4DC] text-center mt-5 mb-10'>নতুন বই যুক্ত করুন</h3>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        {/* register your input into the hook by invoking the "register" function */}
+                        <input defaultValue="test" {...register("example")} />
+                        <ul className="add-category relative flex flex-wrap">
+                            {
+                                categories.map(category => <li key={category._id}>
+                                    <label className="relative">
+                                        <input type="checkbox" {...register(`[${category._id}]`)} onSelect={() => setOk(true)} className="absolute opacity-0" />
+                                        <div className="bg-white py-1.5 px-3 cursor-pointer">
+                                            <p className="text-lg font-semibold uppercase">{category.name}</p>
+                                        </div>
+                                    </label>
+                                </li>)
+                            }
 
-                    </div>
-                    <input type="submit" />
-                </form>
-            </div>
-        </section>
+                        </ul>
+                        <input type="submit" className="bg-blue-400 mt-5 py-2 px-5" />
+                    </form>
+                </div>
+            </div >
+        </section >
     );
 };
 

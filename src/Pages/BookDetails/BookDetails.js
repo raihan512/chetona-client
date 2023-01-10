@@ -17,7 +17,7 @@ const BookDetails = () => {
     const { data: authorInfo = [] } = useQuery({
         queryKey: ['authorInfo', authorId],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/${authorId}`);
+            const res = await fetch(`https://chetona-server-raihan512.vercel.app/author/${authorId}`);
             const data = await res.json();
             return data;
         }
@@ -56,7 +56,7 @@ const BookDetails = () => {
                             {/* Book Name */}
                             <h4 className='text-2xl md:text-3xl lg:text-4xl text-[#000000] font-bold mt-5'>{title}</h4>
                             {/* Author */}
-                            <h5 className='text-base md:text-lg lg:text-xl font-semibold hover:text-[#40A4DC]'><Link to={`author/${authorId}`}>{author}</Link></h5>
+                            <h5 className='text-base md:text-lg lg:text-xl font-semibold hover:text-[#40A4DC]'><Link to={`/author/${authorId}`}>{author}</Link></h5>
                             {/* Rating */}
                             <div className='flex pt-2 pb-5 md:pb-8 lg:pb-14 border-b-2'>
                                 <BsStarFill className='mr-2 text-[#40A4DC] text-xl' />
