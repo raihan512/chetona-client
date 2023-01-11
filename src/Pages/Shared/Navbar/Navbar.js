@@ -1,17 +1,23 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { HiMenuAlt3, HiOutlineX } from "react-icons/hi";
-import logo from '../../../assets/images/logo.png';
-import dropdownicon from '../../../assets/images/icons/navbar/dropdown.png';
-import search from '../../../assets/images/icons/navbar/search.png';
-import user from '../../../assets/images/icons/navbar/user.png';
-import cartIcon from '../../../assets/images/icons/navbar/cart.png';
 import { useQuery } from '@tanstack/react-query';
 import { CartProvider } from '../../../Contexts/CartContext/CartContext';
 import CartMenu from '../CartMenu/CartMenu';
+import { AuthProvider } from '../../../Contexts/AuthContext/AuthContext';
+// Icons
+import { HiMenuAlt3, HiOutlineX } from "react-icons/hi";
+import { FaUserCircle, FaShoppingCart } from "react-icons/fa";
+import { BiChevronDown } from "react-icons/bi";
+import { GoSearch } from "react-icons/go";
+// Logo
+import logo from '../../../assets/images/logo.png';
+import UserMenu from '../UserMenu/UserMenu';
 
 const Navbar = () => {
+    const { user } = useContext(AuthProvider);
+
     const { cart } = useContext(CartProvider);
+    const [showUserMenu, setShowUserMenu] = useState(false);
     const [dropdown, setDropdown] = useState(false);
     const [mobileNav, setMobileNav] = useState(false);
     const [showCartMenu, setShowCartMenu] = useState(true)
@@ -31,7 +37,7 @@ const Navbar = () => {
         <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b md:px-1 lg:px-2 mx-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link className='pl-3 pr-20 md:pl-0 md:pr-0' to='/authors'>লেখক</Link></li>
         {/* Dropdown */}
         <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b md:px-1 lg:px-2 mx-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2 relative'>
-            <p className='flex items-center pl-3 pr-20 md:pl-0 md:pr-0 cursor-pointer' onClick={() => setDropdown(!dropdown)}>ক্যাটাগরি <img src={dropdownicon} className="h-[7px] ml-2" alt="" /></p>
+            <p className='flex items-center pl-3 pr-20 md:pl-0 md:pr-0 cursor-pointer' onClick={() => setDropdown(!dropdown)}>ক্যাটাগরি <BiChevronDown /></p>
             {/* Dropdown Menu */}
             <ul className={`absolute z-40 top-9 left-40 md:left-10 bg-[#40A4DC] rounded-sm py-1 ${dropdown ? 'block' : 'hidden'}`}>
                 <li className='md:text-lg lg:text-xl text-white hover:bg-white hover:text-black'><Link className='pl-6 pr-20' to='/categories' onClick={() => setDropdown(!dropdown)}>সকল</Link></li>
@@ -70,21 +76,15 @@ const Navbar = () => {
                             </ul>
                         </div>
                         {/* User Info */}
-                        <div className='flex'>
+                        <div className='flex items-center'>
                             {/* Search Icon */}
-                            <button>
-                                <img src={search} className="h-[17.8px] " alt="" />
-                            </button>
-                            {/* User Avtar icon */}
-                            <button>
-                                <img src={user} className="h-[18px] ml-2" alt="" />
-                            </button>
+                            <button><GoSearch className='text-xl ml-1' /></button>
                             {/* Cart Icon */}
                             <button className='relative' onClick={() => setShowCartMenu(!showCartMenu)}>
-                                <div className='absolute h-4 w-4 bg-[#40A4DC] rounded-full left-4 -top-1.5 flex justify-center items-center'>
+                                <div className='absolute h-4 w-4 bg-[#40A4DC] rounded-full left-4 -top-2 flex justify-center items-center'>
                                     <p className='text-white text-xs'>{cart.length}</p>
                                 </div>
-                                <img src={cartIcon} className="h-[18.9px] ml-2" alt="" />
+                                <FaShoppingCart className='text-xl ml-1' />
                                 {/* Cart Menu */}
                                 {showCartMenu &&
                                     <div className='absolute top-4 right-0'>
@@ -95,7 +95,22 @@ const Navbar = () => {
                                     </div>
                                 }
                             </button>
-                            {/* Mobile Menu Button */}
+                            {/* User Avtar icon */}
+
+                            <div className='ml-5 text-xl relative flex items-center'>
+                                {
+                                    user ?
+                                        <button onClick={() => setShowUserMenu(!showUserMenu)}>{user.photoUrl ? <img src="" alt="" /> : <p className='text-white font-bold bg-[#40A4DC] py-0.5 px-2.5 rounded-full'>{user.displayName && user.displayName[0]}</p>}</button >
+                                        : <button><Link to='signin'><FaUserCircle className='text-2xl' /></Link></button>
+                                }
+                                {/* Show Cart menu */}
+                                {
+                                    showUserMenu &&
+                                    <div className='absolute top-8 right-0'>
+                                        <UserMenu setShowUserMenu={setShowUserMenu}></UserMenu>
+                                    </div>
+                                }
+                            </div>
                             <button className='md:hidden' onClick={() => setMobileNav(!mobileNav)}>
                                 {
                                     mobileNav ?

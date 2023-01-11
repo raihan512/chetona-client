@@ -33,7 +33,7 @@ const AddBook = () => {
     return (
         <section className='max-width'>
             <div className='mx-1.5 md:mx-2.5 mb-14'>
-                <div className="w-10/12 ml-auto">
+                <div className="w-10/12 mx-auto">
                     <h3 className='text-2xl md:text-4xl lg:text-6xl font-black text-[#40A4DC] text-center mt-5 mb-10'>নতুন বই যুক্ত করুন</h3>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {/* register your input into the hook by invoking the "register" function */}

@@ -3,6 +3,8 @@ import Main from "../../Layout/Main/Main";
 import AddBook from "../../Pages/AddBook/AddBook";
 import AllAuthor from "../../Pages/AllAuthor/AllAuthor";
 import AllBooks from "../../Pages/AllBooks/AllBooks";
+import SignIn from "../../Pages/Auth/SignIn/SignIn";
+import SignUp from "../../Pages/Auth/SignUp/SignUp";
 import Author from "../../Pages/Author/Author";
 import BookDetails from "../../Pages/BookDetails/BookDetails";
 import Cart from "../../Pages/Cart/Cart";
@@ -57,6 +59,14 @@ export const Router = createBrowserRouter([
             {
                 path: '/cart',
                 element: <Cart></Cart>
+            },
+            {
+                path: '/signin',
+                element: <SignIn></SignIn>
+            },
+            {
+                path: '/signup',
+                element: <SignUp></SignUp>
             },
             {
                 path: '*',
