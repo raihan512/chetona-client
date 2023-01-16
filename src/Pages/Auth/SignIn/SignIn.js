@@ -10,14 +10,14 @@ const SignIn = () => {
     return (
         <section className='max-width'>
             <div className='mx-1.5 md:mx-2.5 mb-14'>
-                <div className="w-10/12 mx-auto">
+                <div className="md:w-10/12 mx-auto">
                     <h3 className='text-2xl md:text-4xl lg:text-6xl font-black text-[#40A4DC] text-center mt-5 mb-10'>লগইন করুন</h3>
-                    <div className='w-6/12 mx-auto'>
+                    <div className='w-10/12 md:w-6/12 mx-auto'>
                         {/* Signin form */}
                         <form onSubmit={handleSubmit(onSubmit)}>
                             {/* Email */}
                             <div className='mb-5'>
-                                <input type="email" placeholder='আপনার ইমেইল লিখুন' className='text-lg py-1.5 px-5 rounded-sm border border-[#40A4DC] w-full'
+                                <input type="email" placeholder='আপনার ইমেইল লিখুন' className='md:text-lg py-1.5 px-5 rounded-sm border border-[#40A4DC] w-full'
                                     {...register("mail", { required: "দয়া করে আপনার ইমেইলটি লিখুন" })}
                                     aria-invalid={errors.mail ? "true" : "false"}
                                 />
@@ -25,7 +25,7 @@ const SignIn = () => {
                             </div>
                             {/* Password */}
                             <div className='mb-5'>
-                                <input type="password" placeholder="আপনার পাসওয়ার্ড দিন" className='text-lg py-1.5 px-5 rounded-sm border border-[#40A4DC] w-full'
+                                <input type="password" placeholder="আপনার পাসওয়ার্ড দিন" className='md:text-lg py-1.5 px-5 rounded-sm border border-[#40A4DC] w-full'
                                     {...register("password", { required: "দয়া করে একটি পাসওয়ার্ডটি লিখুন" })}
                                     aria-invalid={errors.password ? "true" : "false"}
                                 />
@@ -39,21 +39,21 @@ const SignIn = () => {
                             <input
                                 type="submit"
                                 value="Sign In"
-                                className='bg-[#40A4DC] text-white text-lg font-semibold rounded-sm border border-[#40A4DC] py-1.5 px-8 cursor-pointer hover:text-[#40A4DC] hover:bg-white' />
+                                className='bg-[#40A4DC] text-white md:text-lg font-semibold rounded-sm border border-[#40A4DC] py-1 md:py-1.5 px-5 md:px-8 cursor-pointer hover:text-[#40A4DC] hover:bg-white' />
                         </form>
                         <div>
-                            <p className='text-center text-2xl font-semibold my-5'>অথবা ব্যাবহার করুন</p>
+                            <p className='text-center text-xl md:text-2xl font-semibold my-5'>অথবা ব্যাবহার করুন</p>
                         </div>
                         <div className=''>
                             <button
-                                className='flex items-center justify-center w-full py-2 bg-[#40A4DC] text-white text-lg md:text-xl rounded-sm border-2 border-[#40A4DC] mb-2 hover:bg-white hover:text-[#40A4DC]'>
+                                className='flex items-center justify-center w-full py-2 bg-[#40A4DC] text-white md:text-xl rounded-sm border-2 border-[#40A4DC] mb-2 hover:bg-white hover:text-[#40A4DC]'>
                                 <p className='mr-2'>জিমেইল</p>
-                                <BsGoogle />
+                                <BsGoogle className='text-lg md:text-xl' />
                             </button>
                             <button
-                                className='flex items-center justify-center w-full py-2 bg-white+ text-[#40A4DC] text-lg md:text-xl rounded-sm border-2 border-[#40A4DC] hover:bg-[#40A4DC] hover:text-white'>
+                                className='flex items-center justify-center w-full py-2 bg-white+ text-[#40A4DC] md:text-xl rounded-sm border-2 border-[#40A4DC] hover:bg-[#40A4DC] hover:text-white'>
                                 <p className='mr-2'>ফেসবুক</p>
-                                <FaFacebookF />
+                                <FaFacebookF className='text-lg md:text-xl' />
                             </button>
                         </div>
                     </div>
