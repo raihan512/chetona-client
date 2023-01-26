@@ -60,7 +60,7 @@ const Navbar = () => {
         <li className='md:text-lg lg:text-xl text-[#333333] py-3 md:pb-2 md:border-transparent border-b md:px-1 lg:px-2 mx-1 transition-all hover:border-[#40A4DC] hover:text-white md:hover:text-[#333333] hover:ml-2'><Link className='pl-3 pr-20 md:pl-0 md:pr-0' onClick={() => setMobileNav(false)} to=''>ব্লগ</Link></li>
     </>
     return (
-        <nav className='sticky top-0 left-0 z-40 bg-[#F6F6F6]'>
+        <nav className='sticky top-0 left-0 z-40 bg-[#F6F6F6] shadow-lg'>
             <div className="max-width">
                 <div className='mx-1.5 md:mx-2.5'>
                     <div className='flex justify-between items-center h-[60px] md:h-[65px] lg:h-[93px]'>

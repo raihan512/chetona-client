@@ -13,7 +13,7 @@ const HomeAllBooks = () => {
             return data;
         }
     })
-    const slicedBooks = allBooks.slice(0, 6);
+    const slicedBooks = allBooks.slice(0, 5);
     return (
         <section className='max-width'>
             <div className='mx-1.5 md:mx-2.5 my-14'>
@@ -23,7 +23,7 @@ const HomeAllBooks = () => {
                     <button className='text-lg md:text-xl lg:text-2xl text-[#666666] underline transition-all hover:text-[#40A4DC] hover:-translate-x-1'><Link to='/allbooks'>ঘুরে দেখুন</Link></button>
                 </div>
                 {/* Sectiontitle */}
-                <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 justify-items-center">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10 justify-items-center">
 
                     {/* Book Item */}
                     {
